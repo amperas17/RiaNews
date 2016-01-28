@@ -43,26 +43,34 @@ public class NewsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        NewsViewHolder newsViewHolder;
 
-        TextView tvTitle, tvText, tvImageSrc;
-        View view = convertView;
-        if (view == null){
-            view = inflater.inflate(R.layout.list_item,parent,false);
+        if (convertView == null){
+            convertView = inflater.inflate(R.layout.list_item,parent,false);
+            newsViewHolder = new NewsViewHolder(convertView);
+            convertView.setTag(newsViewHolder);
+        } else {
+            newsViewHolder = (NewsViewHolder) convertView.getTag();
         }
 
         PeaceOfNews peaceOfNews = getItem(position);
 
-        ((ImageView)view.findViewById(R.id.iv_item)).setImageBitmap(peaceOfNews.imageBitmap);
+        newsViewHolder.ivImage.setImageBitmap(peaceOfNews.imageBitmap);
+        newsViewHolder.tvTitle.setText(peaceOfNews.title);
+        newsViewHolder.tvText.setText(peaceOfNews.text);
+        
+        return convertView;
+    }
 
-        //tvImageSrc=(TextView)view.findViewById(R.id.tv_image_src);
-        //tvImageSrc.setText(peaceOfNews.imageSrc);
+    private class NewsViewHolder{
+        TextView tvTitle, tvText;
+        ImageView ivImage;
 
-        tvTitle = (TextView)view.findViewById(R.id.tv_item_title);
-        tvTitle.setText(peaceOfNews.title);
-        tvText = (TextView)view.findViewById(R.id.tv_item_text);
-        tvText.setText(peaceOfNews.text);
+        public  NewsViewHolder(View view){
+            tvTitle = (TextView)view.findViewById(R.id.tv_item_title);
+            tvText = (TextView)view.findViewById(R.id.tv_item_text);
+            ivImage = (ImageView)view.findViewById(R.id.iv_item);
+        }
 
-
-        return view;
     }
 }
