@@ -1,6 +1,9 @@
 package com.vavan.rianews;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,10 +58,11 @@ public class NewsAdapter extends BaseAdapter {
 
         PeaceOfNews peaceOfNews = getItem(position);
 
+
         newsViewHolder.ivImage.setImageBitmap(peaceOfNews.imageBitmap);
         newsViewHolder.tvTitle.setText(peaceOfNews.title);
         newsViewHolder.tvText.setText(peaceOfNews.text);
-        
+
         return convertView;
     }
 

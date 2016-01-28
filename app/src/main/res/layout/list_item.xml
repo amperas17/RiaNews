@@ -1,39 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="200dp"
+    >
 
     <ImageView
         android:id="@+id/iv_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ria_icon"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ria_icon"
+        android:scaleType="fitXY"
+        />
 
-    <TextView android:id="@+id/tv_item_title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:textSize="16dp"
-        android:textStyle="bold"/>
 
-    <TextView android:id="@+id/tv_item_text"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:text="text"/>
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="10dp"
+        android:paddingBottom="6dp"
+        android:background="@drawable/gradient"
+        >
+
+        <TextView android:id="@+id/tv_item_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:layout_marginBottom="5dp"
+            />
+
+        <TextView android:id="@+id/tv_item_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:maxLines="1"
+            android:textColor="#ddd"
+            />
+
+
+    </LinearLayout>
+
+
+
+
 
     <TextView android:id="@+id/tv_image_src"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:textSize="16dp"
-        android:textStyle="bold"
-        android:text="image-src"
         android:visibility="invisible"/>
 
 
-</LinearLayout>
+</RelativeLayout>
